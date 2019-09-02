@@ -46,11 +46,12 @@ fi
  
 if [ ! $HOSTNAME ]; then
 	HOSTNAME="localhost"
-	HOSTNAME_TOKEN=""
-else
-	HOSTNAME_TOKEN="-h $HOSTNAME"
 fi;
+HOSTNAME_TOKEN="-h $HOSTNAME"
 
+if [ "$HOSTNAME" == "localhost" ]; then
+	HOSTNAME_TOKEN=""
+fi;
  
 if [ ! $USERNAME ]; then
 	USERNAME="postgres"
